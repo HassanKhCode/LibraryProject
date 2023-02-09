@@ -1,8 +1,7 @@
 from datetime import datetime
-import Library
 
 
-class Book(Library):
+class Book:
     def __init__(self, id: int, name: str, author: str,
                  published_year: datetime, type: int):
         self.__id: int = id

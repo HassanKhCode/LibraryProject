@@ -1,8 +1,7 @@
 from datetime import datetime
-import Library
 
 
-class Customer(Library):
+class Customer:
     def __init__(self, id: int, name: str, address: str,
                  email: str, birth_date: datetime):
         self.__id: int = id
