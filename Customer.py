@@ -1,7 +1,8 @@
 from datetime import datetime
+import Library
 
 
-class Customer:
+class Customer(Library):
     def __init__(self, id: int, name: str, address: str,
                  email: str, birth_date: datetime):
         self.__id: int = id
@@ -9,3 +10,4 @@ class Customer:
         self.__address: str = address
         self.__email: str = email
         self.__birth_date: datetime = birth_date
+        customers_list = [].append(id)

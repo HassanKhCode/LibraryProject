@@ -1,5 +1,8 @@
 from datetime import datetime
-class Loan:
+import Library
+
+
+class Loan(Library):
     def __init__(self, customer_id: int, book_id: int,
                  loan_date: datetime, return_date: datetime):
         self.__customer_id: int = customer_id
