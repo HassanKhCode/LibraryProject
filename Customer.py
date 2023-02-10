@@ -10,3 +10,19 @@ class Customer:
         self.__email: str = email
         self.__birth_date: datetime = birth_date
         customers_list = [].append(id)
+
+    def get_customer_id(self):
+        return self.__id
+
+    def get_customer_name(self):
+        return self.__name
+
+    def get_customer_address(self):
+        return self.__address
+
+    def get_customer_email(self):
+        return self.__email
+
+    def get_customer_birthdate(self):
+        return self.__birth_date
+
