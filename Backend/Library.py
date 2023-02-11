@@ -16,7 +16,7 @@ class Library:
     def add_customer(self, id: int, name: str, address: str,
                  email: str, birth_date: datetime):
         if id in self.__customers:
-            return "This customer is already registered!"
+            raise Exception("This customer is already registered!")
         new_customer = Customer(id, name, address, email, birth_date)
         self.__customers[id] = new_customer
         f"Welcome to our library {name}"
@@ -24,18 +24,18 @@ class Library:
     def add_book(self, id: int, name: str, author: str,
                  published_year: datetime, type: int):
         if id in self.__books:
-            return "We already have that book"
+            raise Exception("We already have that book")
         new_book = Book(id, name, author, published_year, type)
 
     def loan_book(self, customer_id: int, book_id: int,
                  loan_date: datetime, loan_type: int):
         if customer_id in self.__loans:
-            return "Sorry this book has already been loaned"
+            raise Exception("Sorry this book has already been loaned")
         new_loan = Loan(customer_id, book_id, loan_date, loan_type)
 
     def return_book(self, customer_id: int, book_id: int):
         if customer_id not in self.__loans:
-            return "This book hasn't been loaned!"
+            raise Exception("This book hasn't been loaned!")
         else:
             return_date = datetime.datetime.now()
             if self.__loans[customer_id].get_max_return_date() >= return_date:
@@ -84,20 +84,20 @@ class Library:
 
     def remove_book_from_library(self, book_id: int):
         if book_id not in self.__books:
-            return "This book doesn't exist"
+            raise Exception("This book doesn't exist")
         elif book_id in self.__loans:
-            return "You need to return the book first!"
+            raise Exception("You need to return the book first!")
         elif book_id in self.__late_returned_loans:
-            return "You need to return the book first!"
+            raise Exception("You need to return the book first!")
         else:
             self.__books.pop(book_id)
 
     def remove_customer_from_library(self, customer_id: int):
         if customer_id not in self.__customers:
-            return "Unknown Customer"
+            raise Exception("Unknown Customer")
         elif customer_id in self.__loans:
-            return "Customer needs to return a book"
+            raise Exception("Customer needs to return a book")
         elif customer_id in self.__late_returned_loans:
-            return "Customer needs to return a book"
+            raise Exception("Customer needs to return a book")
         else:
             self.__customers.pop(customer_id)
