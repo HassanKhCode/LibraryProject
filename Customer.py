@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 
 class Customer:
@@ -9,7 +9,6 @@ class Customer:
         self.__address: str = address
         self.__email: str = email
         self.__birth_date: datetime = birth_date
-        customers_list = [].append(id)
 
     def get_customer_id(self):
         return self.__id

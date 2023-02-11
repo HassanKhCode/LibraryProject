@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 
 class Book:
@@ -24,3 +24,9 @@ class Book:
 
     def get_book_type(self):
         return self.__type
+
+    def get_loan_type(self):
+        return self.__type
+
+    def set_loan_type(self, type: int):
+        self.__type = type
